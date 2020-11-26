@@ -51,21 +51,30 @@ c = ((points[0] - center[0]) ** 2 +
 
 a = vector[0] ** 2 + vector[1] ** 2 + vector[2] ** 2
 
-discr = b**2 - 4 * a * c
+
 t = 0
-if discr < 0:
-    print('Коллизий не найдено')
-elif discr == 0:
-    t = - b / 2 / a
-    print(t*vector[0] + points[0],
-          t*vector[1] + points[1],
-          t*vector[2] + points[2])
+if a != 0:
+    if discr < 0:
+        print('Коллизий не найдено')
+    elif discr == 0:
+        t = - b / 2 / a
+        print(t*vector[0] + points[0],
+              t*vector[1] + points[1],
+              t*vector[2] + points[2])
+    else:
+        t = (- b + discr**0.5) / 2 / a
+        print(t * vector[0] + points[0],
+              t * vector[1] + points[1],
+              t * vector[2] + points[2])
+        t = (-b + discr**0.5) / 2 / a
+        print(t * vector[0] + points[0],
+              t * vector[1] + points[1],
+              t * vector[2] + points[2])
 else:
-    t = (- b + discr**0.5) / 2 / a
-    print(t * vector[0] + points[0],
-          t * vector[1] + points[1],
-          t * vector[2] + points[2])
-    t = (-b + discr**0.5) / 2 / a
-    print(t * vector[0] + points[0],
-          t * vector[1] + points[1],
-          t * vector[2] + points[2])
+    if b != 0:
+        t = -c / b
+        print(t * vector[0] + points[0],
+              t * vector[1] + points[1],
+              t * vector[2] + points[2])
+    else:
+        print('Коллизий не найдено')
