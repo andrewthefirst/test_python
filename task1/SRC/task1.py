@@ -7,3 +7,7 @@ def itoBase(i, base):
     res += str(base[i])
     return res[::-1]
 
+
+i = int(input())
+base = str(input())
+print(itoBase(i, base))
